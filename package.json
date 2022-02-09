@@ -1,0 +1,15 @@
+{
+  "name": "file-manager",
+  "version": "1.0.0",
+  "description": "file manager project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node index.js"
+  },
+  "author": "Juan Diego Gimenez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
