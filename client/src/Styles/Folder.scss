@@ -1,10 +1,18 @@
 .folder {
-    display: flex;
-    font-size: 25px;
-    align-items: center;
+    font-size: 18px;
     padding-left: 20px;
 
-    &__name {
-        margin-left: 5px;
+    &__container {
+        display: flex;
+        align-items: center;
+        line-height: 1.25;
+
+        span {
+            margin-left: 5px; 
+        }
+    }
+
+    &__is-open {
+        height: auto;
     }
 }

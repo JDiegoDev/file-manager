@@ -1,8 +1,9 @@
 .file {
     display: flex;
-    font-size: 25px;
+    font-size: 18px;
     align-items: center;
     padding-left: 20px;
+    line-height: 1.5;
 
     &__name {
         margin-left: 5px;

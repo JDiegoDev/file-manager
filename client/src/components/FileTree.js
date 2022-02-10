@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../actions";
-import { Folder } from './Folder';
-import { File } from './File';
+import { FileTreeRecursive } from "./FileTreeRecursive";
 
 export const FileTree = () => {
 
@@ -16,20 +15,12 @@ export const FileTree = () => {
         dispatch(actions.getFilesData([]));
     }, [dispatch]);
 
+    console.log('fdsfds', filesData)
+
     return (
         <div>
             { isDataLoading && <p>Loading...</p> }
-            { !!filesData.length && (
-                <div> {
-                    filesData.map(file => {
-                        if (file.type === 'folder') {
-                            return <Folder name={file.name} />
-                        } else {
-                            return <File name={file.name} />
-                        }
-                    })    
-                }</div>
-            )}
+            { !!filesData.length && <FileTreeRecursive files={ filesData }/> }
         </div>
     )
 }

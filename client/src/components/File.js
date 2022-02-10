@@ -9,7 +9,7 @@ export const File = ({ name }) => {
     return (
         <div className='file'>
             <AiOutlineFile />
-            <span>{ name }</span>
+            <span className='file__name'>{ name }</span>
         </div>
     );
 }
