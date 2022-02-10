@@ -1,14 +1,25 @@
 import React, { useEffect } from "react";
-import axios from 'axios';
+import { useDispatch, useSelector } from "react-redux";
+import * as actions from "../actions";
 
 export const FileTree = () => {
 
-    useEffect(() => {
-        axios.get('/api/folder_manager')
-            .then(res => {
-                console.log('Response: ', res);
-            })
-    }, []);
+    const dispatch = useDispatch();
+    const {
+        loading: isDataLoading,
+        data: filesData
+    } = useSelector(state => state.filesData);
 
-    return <div>Tree</div>
+    useEffect(() => {
+        dispatch(actions.getFilesData());
+    }, [dispatch]);
+
+    return (
+        <div>
+            { isDataLoading && <p>Loading...</p> }
+            { !!filesData.length && (
+                <div> Folders will go here !!!</div>
+            )}
+        </div>
+    )
 }
