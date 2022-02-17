@@ -10,17 +10,17 @@ export const FileTreeRecursive = ({ files }) => {
               files.map((file, index) => {
                   if (file.type === 'folder') {
                       return (
-                          <Folder
-                              name={file.name}
-                              id={file.id}
-                              parentId={file.parentId}
-                              key={`${file.name}-${index}`}
-                          >
-                              <FileTreeRecursive files={ file.children } />
-                          </Folder>
+                        <Folder
+                            name={file.name}
+                            id={file.id}
+                            parentId={file.parentId}
+                            key={`${file.name}-${index}`}
+                        >
+                            <FileTreeRecursive files={ file.children } key={`${file.name}-${index}`} />
+                        </Folder>
                       )
                   } else {
-                      return <File name={file.name} />
+                      return <File name={file.name} key={`${file.name}-${index}`}/>
                   }
               })    
           }</div>
