@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaFolderOpen, FaFolder } from 'react-icons/fa';
+import { FcOpenedFolder, FcFolder } from 'react-icons/fc';
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from "../actions";
 import '../Styles/Folder.scss';
@@ -28,8 +28,8 @@ export const Folder = item => {
     return (
         <div className='folder'>
             <div className='folder__container' onClick={handleOpen}>
-                { isOpen && <FaFolderOpen /> }
-                { !isOpen && <FaFolder /> }
+                { isOpen && <FcOpenedFolder /> }
+                { !isOpen && <FcFolder /> }
                 <span>{ name }</span>
             </div>
             { isOpen && <div className={classIsOpen}>{ children }</div> }
