@@ -17,7 +17,10 @@ export const Folder = item => {
             parentId: item.parentId
         };
 
-        dispatch(actions.getFilesData(nodeObj, filesData));
+        if (!isOpen && !item.children.props.files.length) {     // request data only if it has not been previously requested
+           dispatch(actions.getFilesData(nodeObj, filesData));
+        } 
+        
         setIsOpen(!isOpen);
     };
     const classIsOpen = isOpen ? 'file__is-open' : '';
