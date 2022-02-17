@@ -1,15 +1,26 @@
 import React, { useState } from 'react';
 import { FaFolderOpen, FaFolder } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import * as actions from "../actions";
 import '../Styles/Folder.scss';
 
-export const Folder = ({ name, children }) => {
+export const Folder = item => {
 
+    const { name, children } = item;
+    const dispatch = useDispatch();
     const [ isOpen, setIsOpen ] = useState(false);
-    const handleOpen = () => setIsOpen(!isOpen);
-    const classIsOpen = isOpen ? 'file__is-open' : '';
+    const { data: filesData } = useSelector(state => state.filesData);
 
-    console.log('children', children);
-    console.log('isopen', isOpen);
+    const handleOpen = () => {
+        const nodeObj = {
+            id: item.id,
+            parentId: item.parentId
+        };
+
+        dispatch(actions.getFilesData(nodeObj, filesData));
+        setIsOpen(!isOpen);
+    };
+    const classIsOpen = isOpen ? 'file__is-open' : '';
 
     return (
         <div className='folder'>

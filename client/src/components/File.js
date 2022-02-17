@@ -7,7 +7,7 @@ export const File = ({ name }) => {
     const extension = name.split('.')[1];
 
     return (
-        <div className='file'>
+        <div className='file' id={name}>
             <AiOutlineFile />
             <span className='file__name'>{ name }</span>
         </div>

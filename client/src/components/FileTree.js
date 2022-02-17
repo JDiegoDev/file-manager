@@ -12,10 +12,8 @@ export const FileTree = () => {
     } = useSelector(state => state.filesData);
 
     useEffect(() => {
-        dispatch(actions.getFilesData([]));
+        dispatch(actions.getFilesData(null));
     }, [dispatch]);
-
-    console.log('fdsfds', filesData)
 
     return (
         <div>

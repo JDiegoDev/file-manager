@@ -7,7 +7,6 @@ const INITIAL_STATE = {
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
-    console.log('ACTION: ', action);
     switch(action.type) {
          case LOAD_FETCH_DATA: 
          
